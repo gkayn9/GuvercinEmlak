@@ -1,0 +1,15 @@
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/bin/Release/net9.0/Guvercin.Application.deps.json
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/bin/Release/net9.0/Guvercin.Application.dll
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/bin/Release/net9.0/Guvercin.Application.pdb
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/bin/Release/net9.0/Guvercin.Domain.dll
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/bin/Release/net9.0/Guvercin.Domain.pdb
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.csproj.AssemblyReference.cache
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.AssemblyInfoInputs.cache
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.AssemblyInfo.cs
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.csproj.CoreCompileInputs.cache
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.D2AC61B3.Up2Date
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.dll
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/refint/Guvercin.Application.dll
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/Guvercin.Application.pdb
+/home/gokhan/Desktop/Udemy/GuvercinRealEstate/Guvercin.Application/obj/Release/net9.0/ref/Guvercin.Application.dll
