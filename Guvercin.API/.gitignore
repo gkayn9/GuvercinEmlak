@@ -1,0 +1,47 @@
+# .NET Core
+bin/
+obj/
+*.user
+*.vspscc
+.vs/
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core
+appsettings.json
+appsettings.*.json
+
+# ASP.NET Core local development certificate
+https://github.com/dotnet/core/blob/main/Documentation/dotnet-runtime-versions.md
+*.pfx
+*.crt
+*.pem
+
+# NPM
+node_modules/
+
+# TypeScript
+dist/
+
+# JetBrains Rider
+.idea/
+
+# Windows Installer
+*.cab
+*.msi
+*.msm
+*.msp
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
