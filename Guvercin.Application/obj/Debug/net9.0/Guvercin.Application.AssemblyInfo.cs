@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Guvercin.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+006af9baa17cfc4dcbd06da9af6a081f6150cfcd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Guvercin.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Guvercin.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
