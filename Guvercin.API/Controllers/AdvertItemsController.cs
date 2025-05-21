@@ -1,4 +1,5 @@
 using Guvercin.Application.Dtos.AdvertItemsDtos;
+using Guvercin.Application.Dtos.ResponseDtos;
 using Guvercin.Application.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,14 @@ public class AdvertItemsController : ControllerBase
     public async Task<IActionResult> GetAllAdvertItems()
     {
         var result= await _advertItemServices.GetAllAdvertItems();
+        if (!result.Success)
+        {
+            if (result.ErrorCodes==ErrorCodes.NotFound)
+            {
+                return Ok(result);
+            } 
+            return BadRequest(result);
+        }
         return Ok(result);
     }
     
@@ -27,27 +36,58 @@ public class AdvertItemsController : ControllerBase
     public async Task<IActionResult> GetAdvertItemById(int id)
     {
         var result= await _advertItemServices.GetByIdAdvertItem(id);
+        if (!result.Success)
+        {
+            if (result.ErrorCodes==ErrorCodes.NotFound)
+            {
+                return Ok(result);
+            } 
+            return BadRequest(result);
+        }
         return Ok(result);
     }
     
     [HttpPost]
     public async Task<IActionResult> AddAdvertItem(CreateAdvertItemDto createAdvertItemDto)
     {
-        await _advertItemServices.AddAdvertItem(createAdvertItemDto);
-        return Ok("İlan Oluşturuldu");
+        var result =await _advertItemServices.AddAdvertItem(createAdvertItemDto);
+        if (!result.Success)
+        {
+            if (result.ErrorCodes is ErrorCodes.ValidationError )
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        return Ok(result);
     }
     
     [HttpPut]
     public async Task<IActionResult> UpdateAdvertItem(UpdateAdvertItemDto updateAdvertItemDto)
     {
-        await _advertItemServices.UpdateAdvertItem(updateAdvertItemDto);
+        var result =await _advertItemServices.UpdateAdvertItem(updateAdvertItemDto);
+        if (!result.Success)
+        {
+            if (result.ErrorCodes is ErrorCodes.ValidationError or ErrorCodes.NotFound )
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         return Ok("İlan Güncellendi");
     }
     
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAdvertItem(int id)
     {
-        await _advertItemServices.DeleteAdvertItem(id);
+        var result =await _advertItemServices.DeleteAdvertItem(id);
+        if (!result.Success)
+        {
+            if (result.ErrorCodes == ErrorCodes.NotFound)
+            {
+                return Ok(result);
+            }
+        }
         return Ok("İlan Silindi");
     }
 }

@@ -1,0 +1,55 @@
+###########################
+# .NET Core ve ASP.NET
+###########################
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.db
+
+# Rider & VS Code
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vspscc
+
+# Project-specific
+project.lock.json
+project.fragment.lock.json
+
+# ASP.NET Core config dosyaları (güvenlik için)
+appsettings.json
+appsettings.*.json
+
+# ASP.NET Core development certificates
+*.pfx
+*.crt
+*.pem
+
+###########################
+# JavaScript/Frontend
+###########################
+node_modules/
+dist/
+
+###########################
+# Log Dosyaları
+###########################
+logs/
+*.log
+
+###########################
+# Windows Installer
+###########################
+*.cab
+*.msi
+*.msm
+*.msp
