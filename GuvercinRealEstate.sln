@@ -6,13 +6,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{963C939C-AF45-42F1-8989-4C0A98ED9D1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.Domain", "Guvercin.Domain\Guvercin.Domain.csproj", "{B96FB4F5-F145-4D8F-8E9F-8097691ABAAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.Domain", "Guvercin\Guvercin.Domain\Guvercin.Domain.csproj", "{B96FB4F5-F145-4D8F-8E9F-8097691ABAAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.Application", "Guvercin.Application\Guvercin.Application.csproj", "{8CDE985B-0C39-4C83-A349-037B62BE62AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.Application", "Guvercin\Guvercin.Application\Guvercin.Application.csproj", "{8CDE985B-0C39-4C83-A349-037B62BE62AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.Persistance", "Guvercin.Persistance\Guvercin.Persistance.csproj", "{09092FB2-2C82-4DB1-8A2A-D69C5383A3C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.Persistance", "Guvercin\Guvercin.Persistance\Guvercin.Persistance.csproj", "{09092FB2-2C82-4DB1-8A2A-D69C5383A3C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.API", "Guvercin.API\Guvercin.API.csproj", "{E5B64F52-5C40-471D-9185-AE28DA45C563}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guvercin.API", "Guvercin\Guvercin.API\Guvercin.API.csproj", "{E5B64F52-5C40-471D-9185-AE28DA45C563}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
