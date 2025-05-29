@@ -1,6 +1,7 @@
 using Guvercin.Application.Dtos.CategoryDtos;
 using Guvercin.Application.Dtos.ResponseDtos;
 using Guvercin.Application.Services.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Guvercin.API.Controllers;
@@ -30,7 +31,7 @@ public class CategoriesController : BaseController
         var result= await _categoryServices.GetCategoryById(id);
         return CreateResponse(result);
     }
-    
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> AddCategory(CreateCategoryDto createCategoryDto)
     {

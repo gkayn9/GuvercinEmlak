@@ -1,19 +1,50 @@
+using System.Text;
 using FluentValidation;
 using Guvercin.Application.Dtos.AdvertItemsDtos;
 using Guvercin.Application.Dtos.CategoryDtos;
+using Guvercin.Application.Helpers;
 using Guvercin.Application.Interfaces;
 using Guvercin.Application.Mapping;
 using Guvercin.Application.Services.Abstract;
 using Guvercin.Application.Services.Concrete;
 using Guvercin.Persistance.Context;
 using Guvercin.Persistance.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+//Jwt Authentication
+
+#region Jwt Token 
+
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpContextAccessor();
+
+#endregion
 
 builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("GuvercinDbConnectionString")));
@@ -22,6 +53,12 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<IAdvertItemServices, AdvertItemServices>();
 builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 builder.Services.AddScoped<IAdvertItemRepository, AdvertItemRepository>();
+builder.Services.AddScoped<IAuthServices, AuthService>();
+builder.Services.AddScoped<TokenHelpers>();
+
+
+
+
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
 builder.Services.AddValidatorsFromAssemblyContaining<CreateCategoryDto>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateCategoryDto>();
@@ -50,6 +87,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
