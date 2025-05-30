@@ -2,11 +2,13 @@ using System.Text;
 using FluentValidation;
 using Guvercin.Application.Dtos.AdvertItemsDtos;
 using Guvercin.Application.Dtos.CategoryDtos;
+using Guvercin.Application.Dtos.UserDtos;
 using Guvercin.Application.Helpers;
 using Guvercin.Application.Interfaces;
 using Guvercin.Application.Mapping;
 using Guvercin.Application.Services.Abstract;
 using Guvercin.Application.Services.Concrete;
+using Guvercin.Application.Validators.Users;
 using Guvercin.Persistance.Context;
 using Guvercin.Persistance.Context.Identity;
 using Guvercin.Persistance.Repository;
@@ -72,6 +74,8 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<IAdvertItemServices, AdvertItemServices>();
 builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 builder.Services.AddScoped<IAdvertItemRepository, AdvertItemRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserServices, UserService>();
 builder.Services.AddScoped<IAuthServices, AuthService>();
 builder.Services.AddScoped<TokenHelpers>();
 
@@ -83,6 +87,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateCategoryDto>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateCategoryDto>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateAdvertItemDto>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateAdvertItemDto>();
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterValidator>();
 
     
 
