@@ -2,6 +2,7 @@
 using AutoMapper;
 using Guvercin.Application.Dtos.AdvertItemsDtos;
 using Guvercin.Application.Dtos.CategoryDtos;
+using Guvercin.Application.Dtos.UserDtos;
 using Guvercin.Domain.Entities;
 
 namespace Guvercin.Application.Mapping;
@@ -21,7 +22,6 @@ public class GeneralMapping:Profile
         CreateMap<AdvertItem,DetailAdvertItemDto>().ReverseMap();
         CreateMap<AdvertItem,ResultAdvertItemDto>().ReverseMap();
         CreateMap<AdvertItem,CategoriesAdvertItemDto>().ReverseMap();
-        
         
         
     }

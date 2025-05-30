@@ -1,4 +1,5 @@
 using Guvercin.Application.Dtos.AuthDtos;
+using Guvercin.Application.Dtos.UserDtos;
 using Guvercin.Application.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,7 @@ public class AuthController: BaseController
     }
 
     [HttpPost("generateToken")]
-    public async Task<IActionResult> GenerateToken(TokenDto dto)
+    public async Task<IActionResult> GenerateToken([FromBody]LoginDto dto)
     {
         var result = await _authServices.GenarateToken(dto);
         return CreateResponse(result);
