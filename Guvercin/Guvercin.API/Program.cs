@@ -8,13 +8,17 @@ using Guvercin.Application.Mapping;
 using Guvercin.Application.Services.Abstract;
 using Guvercin.Application.Services.Concrete;
 using Guvercin.Persistance.Context;
+using Guvercin.Persistance.Context.Identity;
 using Guvercin.Persistance.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
@@ -48,6 +52,21 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("GuvercinDbConnectionString")));
+
+builder.Services.AddDbContext<AppIdentityDbContext>(options=>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("GuvercinDbConnectionString")));
+
+builder.Services.AddIdentity<AppIdentityUser, AppIdentityRole>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+})
+    .AddEntityFrameworkStores<AppIdentityDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IAdvertItemServices, AdvertItemServices>();
