@@ -31,7 +31,7 @@ public class CategoriesController : BaseController
         var result= await _categoryServices.GetCategoryById(id);
         return CreateResponse(result);
     }
-    [Authorize]
+    //[Authorize]
     [HttpPost]
     public async Task<IActionResult> AddCategory(CreateCategoryDto createCategoryDto)
     {

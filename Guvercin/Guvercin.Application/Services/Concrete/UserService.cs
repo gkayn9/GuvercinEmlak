@@ -48,4 +48,41 @@ public class UserService:IUserServices
             return new ResponseDto<object>(){Success = false,Data = null,Message = "Something went wrong",ErrorCode = ErrorCodes.Exception};
         }
     }
+
+    public async Task<ResponseDto<object>> CreateRole(string roleName)
+    {
+        try
+        {
+            var result = await _userRepository.CreateRoleAsync(roleName);
+            if (result)
+            {
+                return new ResponseDto<object>(){ Success = true, Data = null, Message = "Role created successfully" };
+            }
+            return new ResponseDto<object>(){ Success = false, Data = null, Message = "Something went wrong" };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDto<object>(){Success = false,Data = null,Message = "Something went wrong",ErrorCode = ErrorCodes.Exception};
+
+        }
+    }
+
+    public async Task<ResponseDto<object>> AddToRole(string email, string roleName)
+    {
+        try
+        {
+            var result = await _userRepository.AddRoleToUserAsync(email, roleName);
+            if (result)
+            {
+                return new ResponseDto<object>(){ Success = true, Data = null, Message = "User added to role successfully" };
+            }
+            return new ResponseDto<object>(){ Success = false, Data = null, Message = "Something went wrong" };
+
+        }
+        catch (Exception e)
+        {
+            return new ResponseDto<object>(){Success = false,Data = null,Message = "Something went wrong",ErrorCode = ErrorCodes.Exception};
+
+        }
+    }
 }

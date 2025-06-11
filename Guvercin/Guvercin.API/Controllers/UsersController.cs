@@ -25,4 +25,16 @@ public class UsersController : BaseController
         return CreateResponse(result);
 
     }
+    [HttpPost("createRole")]
+    public async Task<IActionResult> CreateRole(string roleName)
+    {
+        var result = await _userServices.CreateRole(roleName);
+        return CreateResponse(result);
+    }
+    [HttpPost("addRoleToUser")]
+    public async Task<IActionResult> AddRoleToUser(string email ,string roleName)
+    {
+        var result = await _userServices.AddToRole(email,roleName);
+        return CreateResponse(result);
+    }
 }
